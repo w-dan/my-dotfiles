@@ -1,20 +1,21 @@
 echo "===== DOWNLOADING SYSTEM UPDATES ====="
-sudo apt update $1
-sudo apt upgrade $1
+apt update $1
+apt upgrade $1
 echo
 
 echo "===== DOWNLOADING OS UPDATES ====="
-sudo apt dist-upgrade $1
+apt dist-upgrade $1
 echo
 
 echo "===== FIXING BROKEN PACKAGES ====="
-sudo apt --fix-broken install $1
+apt-get clean
+apt --fix-broken install $1
 echo
 
 echo "===== PURGING UNUSED PACKAGES ====="
-sudo apt autoremove $1
+apt autoremove $1
 
 echo "===== UPDATING FLATPAK PACKAGES ====="
-sudo flatpak update
+flatpak update
 
 echo "===== DONE! ====="
